@@ -1,2 +1,4 @@
 npx sequelize model:generate --name Park --attributes parkName:string,city:string,provinceState:string,country:string,opened:dateonly,size:string,description:text
 npx dotenv sequelize db:migrate
+
+npx sequelize seed:generate --name test-data

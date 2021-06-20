@@ -1,25 +1,24 @@
+require('dotenv').config();
 const express = require('express')
 const app = express()
 const routes = require('./routes')
 const morgan = require('morgan')
 const cookieParser = require('cookie-parser')
-require('dotenv').config();
+
 
 
 
 app.set('view engine', 'pug')
 app.use(morgan('dev'))
 app.use(express.urlencoded({ extended: false }))
-
 app.use(routes)
 app.use(cookieParser())
 
 const pageNotFoundError = (req, res, next) => {
     let testError = new Error("The requests page couldn't be found");
     testError.status = 404
-    console.log(res);
     next(testError)
-}   
+}
 
 const errorHandler = (err, req, res, next) => {
     if (err.status === 404) {
@@ -50,6 +49,3 @@ app.use(pageNotFoundError)
 app.use(errorHandler)
 
 module.exports = app
-
-
-

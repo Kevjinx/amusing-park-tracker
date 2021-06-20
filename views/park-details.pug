@@ -1,0 +1,18 @@
+extends layout.pug
+
+block content
+  h2 Park Details
+  br
+  h3= park.parkName
+  div
+    ul
+      li location: #{park.city}, #{park.provinceState} #{park.country}
+      li Opened: #{park.opened}
+      li Size: #{park.size}
+  div
+    p= park.description
+  br
+  div
+    a(href=`/park/edit/${park.id}` class='btn btn-primary' role='button') Edit
+    a(href=`/park/edit/${park.id}` class='btn btn-danger' role='button') Delete
+    a(href="/parks" class='btn btn-warning' role='button') Return to List
