@@ -2,19 +2,23 @@ extends layout.pug
 
 block content
 
-  form(action="/park/add" method="post")
-    input(type="hidden" name="_csrf" value="csrfToken")
-    label(for="parkName")
-    input(type="text" name="parkName" value=park.parkName)
-    label(for="city")
-    input(type="text" name="city" value=park.city)
-    label(for="provinceState")
-    input(type="text" name="provinceState" value=park.provinceState)
-    label(for="country")
-    input(type="text" name="country" value=park.country)
-    label(for="opened")
-    input(type="text" name="opened" value=park.opened)
-    label(for="size")
-    input(type="text" name="size" value=park.size)
-    label(for="description")
-    textarea(name="description", cols="30", rows="10" value=park.description)
+  form(action="/park/add" method="post" class='form-group')
+    input(type="hidden" name="_csrf" value=csrfToken)
+    label(for="parkName") Park Name:
+    input(type="text" name="parkName" value=park.parkName class='form-control')
+    label(for="city") City:
+    input(type="text" name="city" value=park.city class='form-control')
+    label(for="provinceState") State:
+    input(type="text" name="provinceState" value=park.provinceState class='form-control')
+    label(for="country") Country:
+    input(type="text" name="country" value=park.country class='form-control')
+    label(for="opened") Opened:
+    input(type="text" name="opened" value=park.opened class='form-control')
+    label(for="size") Size:
+    input(type="text" name="size" value=park.size class='form-control')
+    label(for="description") Description:
+    textarea(name="description", cols="30", rows="10" value=park.description class='form-control')
+    br
+    button(type='submit' class='btn btn-primary') Submit
+    br
+    a(href="/parks" role='button') Cancel
